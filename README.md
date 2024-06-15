@@ -64,6 +64,12 @@ $ npm run test
 # testes unitários no modo watch
 $ npm run test:watch
 
+# testes de ponta a ponta
+$ npm run test:e2e
+
+# testes de ponta a ponta no modo watch
+$ npm run test:e2e:watch
+
 # teste coverage
 $ npm run test:cov
 
