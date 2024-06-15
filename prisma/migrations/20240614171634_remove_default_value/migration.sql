@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "valar" ALTER COLUMN "otherNames" DROP DEFAULT,
+ALTER COLUMN "vassals" DROP DEFAULT;
