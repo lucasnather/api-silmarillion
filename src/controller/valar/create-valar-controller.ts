@@ -16,7 +16,6 @@ export class CreateValarController {
         })
 
         const { name, otherNames, vassals, domains, isAratar } = valarBodySchema.parse(request.body)
-        console.log(name)
 
         const valarRepository = new ValarRepository()
         const createValarService = new CreateValarService(valarRepository)
