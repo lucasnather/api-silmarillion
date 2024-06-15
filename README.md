@@ -2,7 +2,7 @@
 
 # Descrição
 
-## Essa API visa extrair informações principais dos Livros da Primeira Era da Terra-Média para amantes de Tolkien e código possam ter fácil acesso aos seus inúmeros dados.
+<p>Essa API visa extrair informações principais dos Livros da Primeira Era da Terra-Média para amantes de Tolkien e código possam ter fácil acesso aos seus inúmeros dados.</p>
 
 # Tecnologias 
 
@@ -29,7 +29,7 @@ $ npm install
 
 ```
 
-## Antes de rodar a aplicação verifica o arquivo .env.example, crie o arquivo .env e coloque seus dados.
+## Antes de rodar a aplicação verifique o arquivo .env.example, crie o arquivo .env e coloque seus dados.
 
 ## Rodando a aplicação
 
@@ -88,8 +88,8 @@ $ npm run test:cov
 
 # Meus Objetivos com esta aplicação
 
-## Há algum tempo voltei a ler meus livros da Primeira Era da Terra-Média, esses são O Silmarillion, Beren e Lúthien, Os Filhos de Húrin e A Queda de Gondolin.
+<p>Há algum tempo voltei a ler meus livros da Primeira Era da Terra-Média, esses são O Silmarillion, Beren e Lúthien, Os Filhos de Húrin e A Queda de Gondolin.</p>
 
-## Sempre fui muito fã de "O Senhor dos anéis", porém nunca tinha me aprofundado tanto antes nas obras literárias . O momento que estou agora ( na vida ) casou-se perfeitamente, estou me sentindo perdido ( espero que no futuro se torne "estava" ), com medo de sempre cair na mesmice de replicar muito código e só realizar projetos que já estão prontos em cursos.
+<p>Sempre fui muito fã de "O Senhor dos anéis", porém nunca tinha me aprofundado tanto antes nas obras literárias . O momento que estou agora ( na vida ) casou-se perfeitamente, estou me sentindo perdido ( espero que no futuro se torne "estava" ), com medo de sempre cair na mesmice de replicar muito código e só realizar projetos que já estão prontos em cursos.</p>
 
-## Então decidi unir o útil ao agradável e irei construir essa API do Silmarillion, com base nos livros e vídeos que venho vendo nos últimos meses.
+<p>Então decidi unir o útil ao agradável e irei construir essa API do Silmarillion, com base nos livros e vídeos que venho vendo nos últimos meses.</p>
