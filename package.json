@@ -6,7 +6,7 @@
   "scripts": {
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:coverage": "vitest --coverage",
+    "test:cov": "vitest --coverage",
     "dev": "tsx --env-file .env src/app.ts",
     "dev:watch": "tsx --env-file .env --watch  src/app.ts"
   },

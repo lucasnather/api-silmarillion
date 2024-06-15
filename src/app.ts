@@ -10,7 +10,7 @@ const port = env.PORT || 8080
 
 app.get('/', (request, response) => {
     response.json({
-        message: 'Hello World - ( Welcome to to my Silmarillion API )'
+        message: 'Hello World - ( Welcome to my Silmarillion API )'
     })
 })
 
