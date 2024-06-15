@@ -12,10 +12,8 @@ export class FindValarbyIdController {
             valarId: z.coerce.number()
         })
 
-        
-
         const { valarId } = valarParamSchema.parse(request.params)
-        console.log(valarId)
+    
 
         const valarRepository = new ValarRepository()
         const findManyValarService = new FindValarByIdService(valarRepository)

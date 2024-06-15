@@ -88,10 +88,10 @@ $ npm run test:cov
 </ul>
 
 ```bash
-    $ Hello World - ( Welcome to my Silmarillion API )
+    Hello World - ( Welcome to my Silmarillion API )
 ```
 
-1. Todos os Valar
+2. Todos os Valar
 
 <ul>
     <li>Metódo: GET</li>
@@ -119,6 +119,32 @@ $ npm run test:cov
                 "isAratar": true
             }
         ],
+        "status": 200
+    }
+
+```
+1. Encontrar Valar por Id
+<ul>
+    <li>Metódo: GET</li>
+    <li>URL: http://localhost:8080/api/valar/2</li>
+    <li>Description: lista valar por id </li>
+    <li>Response status: 200 OK</li>
+    <li>Response Payload: </li>
+</ul>
+
+```bash
+
+    {
+        "valar": {
+            "id": 2,
+            "name": "Varda",
+            "otherNames": [
+                "Senhora das Estrelas", 
+                "Elentári"],
+            "domains": "Seu poder estar na luz",
+            "vassals": [],
+            "isAratar": true
+        },
         "status": 200
     }
 
