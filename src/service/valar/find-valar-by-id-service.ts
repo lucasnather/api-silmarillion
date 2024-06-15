@@ -1,6 +1,6 @@
+import { ResourceNotFound } from "@/errors/resource-not-found.js";
 import { ValarDto } from "@/interfaces/dto/valar-dto.js";
 import { ValarFactory } from "@/interfaces/valar-factory.js";
-import { Valar } from "@prisma/client";
 
 type FindValarByIdReQuest = {
     id: number
@@ -20,7 +20,7 @@ export class FindValarByIdService {
     async execute( { id }: FindValarByIdReQuest): Promise<FindValarByIdResponse> {
         const findValarById = await this.valarRepository.findById(id)
 
-        if(!findValarById) throw new Error('Valar Not Found')
+        if(!findValarById) throw new ResourceNotFound()
 
         return {
             valar: findValarById,

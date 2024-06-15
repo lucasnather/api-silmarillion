@@ -13,9 +13,9 @@ afterEach(async () => {
     server.close()
 })
 
-describe('Find Many Valar Test - e2e', () => {
+describe('Find Valar By id Test - e2e', () => {
 
-    it('Should be able to find many valar', async () => {
+    it('Should be able to find valar by id', async () => {
         request(app)
             .post('/api/valar')
             .send({
@@ -29,8 +29,16 @@ describe('Find Many Valar Test - e2e', () => {
         
 
         request(app)
-            .get('/api/valar')
+            .get('/api/valar/1')
             .expect(200)
+
+    })
+
+    it('Should not be able to find valar by id', async () => {
+
+        request(app)
+            .get('/api/valar/invalid-number')
+            .expect(404)
 
     })
 })

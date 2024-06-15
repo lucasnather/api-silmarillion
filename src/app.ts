@@ -1,8 +1,8 @@
 import express from 'express'
 import { env } from './env/env.js'
 import { valarRouter } from './routes/valar-routes.js'
+import { app } from './server.js'
 
-export const app = express()
 
 app.use(express.json())
 
