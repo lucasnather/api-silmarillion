@@ -91,6 +91,39 @@ $ npm run test:cov
     $ Hello World - ( Welcome to my Silmarillion API )
 ```
 
+1. Todos os Valar
+
+<ul>
+    <li>Metódo: GET</li>
+    <li>URL: http://localhost:8080/api/valar</li>
+    <li>Description: lista todos os valar </li>
+    <li>Response status: 200 OK</li>
+    <li>Response Payload: </li>
+</ul>
+
+```bash
+
+    {
+        "valar": [
+            {
+                "id": 1,
+                "name": "Manwë",
+                "otherNames": [
+                    "Sulimo",
+                    "Senhor do Alento de Arda"
+                ],
+                "domains": "Ventos, nuvens e em todas as regiões do ar",
+                "vassals": [
+                    "Eönwë"
+                ],
+                "isAratar": true
+            }
+        ],
+        "status": 200
+    }
+
+```
+
 
 # Meus Objetivos com esta aplicação
 
