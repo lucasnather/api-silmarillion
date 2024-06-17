@@ -1,0 +1,171 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "API - O Silmarillion",
+        "version": "0.1.0",
+        "description":
+          "Aplicação que tem como base os livros da Primeira Era da Terra-Média, para amantes de código e Tolkien.",
+        "license": {
+          "name": "MIT",
+          "url": "https://spdx.org/licenses/MIT.html"
+        },
+        "contact": {
+          "name": "Lucas Nather",
+          "email": "natherlucas@gmail.com"
+        }
+      },
+    "servers": [
+      {
+        "url": "http://localhost:8080" 
+      }
+    ],
+    "apis": ["./src/routes.ts"],
+    "paths": {
+      "/": {
+        "get": {
+          "summary": "Hello World",
+          "description": "Essa é a apenas uma rota inicial da aplicação",
+          "tags": ["Hello World"],
+          "responses": {
+            "200": {
+              "description": "Ok",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schema/Hello"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/valar": {
+        "post": {
+          "summary": "Create Valar",
+          "description": "Essa rota cria um Vala, não deve se criar um Vala com o mesmo nome",
+          "tags": ["Valar"],
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schema/Valar"
+                },
+                "examples": {
+                  "valar": {
+                    "value": {
+                      "name": "Manwë",
+                      "domains": "Ventos, nuvens e em todas as regiões do ar",
+                      "isAratar": true,
+                      "otherNames": ["Sulimo", "Senhor do Alento de Arda"] ,
+                      "vassals": ["Eönwë"]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "201": {
+              "description": "Ok",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schema/Valar"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "get": {
+          "summary": "Find All Valar",
+          "description": "Essa rota busca por todos os Vala",
+          "tags": ["Valar"],
+          "responses": {
+            "200": {
+              "description": "Ok",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schema/Valar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/valar/{valarId}": {
+        "get": {
+          "summary": "Find Valar By Id",
+          "description": "Essa rota busca um Vala por Id",
+          "tags": ["Valar"],
+          "parameters": [
+            {
+              "name": "valarId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Ok",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schema/Valar"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schema": {
+        "Hello": {
+          "type": "object",
+            "properties": {
+              "message": {
+                "type": "string"
+              }
+            }
+        },
+        "Valar": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "number"
+            },
+            "name": {
+              "type": "string"
+            },
+            "otherNames": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "domains": {
+              "type": "string"
+            },
+            "vassals": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "isAratar": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    }
+}
+
