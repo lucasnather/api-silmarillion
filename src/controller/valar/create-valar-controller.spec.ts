@@ -16,7 +16,7 @@ afterEach(async () => {
 
 describe('Create Valar Test - e2e', () => {
 
-    it('Shoulbe able to create a valar', async () => {
+    it('Should be able to create a valar', async () => {
         request(app)
             .post('/api/valar')
             .send({
@@ -28,6 +28,31 @@ describe('Create Valar Test - e2e', () => {
             }
         )
         .expect(201)
+
+    })
+
+    it('Should not be able to create a valar', async () => {
+        request(app)
+            .post('/api/valar')
+            .send({
+                "name": "Manwë",
+                "domains": "Ventos, nuvens e em todas as regiões do ar",
+                "isAratar": true,
+                "otherNames": ["Sulimo", "Senhor do Alento de Arda"] ,
+                "vassals": ["Eönwë"]
+            }
+        )
+
+        request(app)
+            .post('/api/valar')
+            .send({
+                "name": "Manwë",
+                "domains": "Ventos, nuvens e em todas as regiões do ar",
+                "isAratar": true,
+                "otherNames": ["Sulimo", "Senhor do Alento de Arda"] ,
+                "vassals": ["Eönwë"]
+            }
+        ).expect(404)
 
     })
 })

@@ -12,12 +12,12 @@ export class CreateValarController {
         const valarBodySchema = z.object({
             name: z.string({
                 message: "O campo nome é obrigatório"
-            }),
+            }).min(4, 'Campo nome com no mínimo 4 caractres'),
             otherNames: z.string().array(),
             vassals: z.string().array(),
             domains: z.string(),
             isAratar: z.boolean()
-        })
+        }).required()
 
         
         const valarRepository = new ValarRepository()
@@ -26,6 +26,8 @@ export class CreateValarController {
         
         try {
             const { name, otherNames, vassals, domains, isAratar } = valarBodySchema.parse(request.body)
+
+            if(!name || !isAratar || !domains) throw new Error('Campo name, isAratar e domains é obrigatório')
 
             const { valar, message, status } = await createValarService.execute({
                 name,
