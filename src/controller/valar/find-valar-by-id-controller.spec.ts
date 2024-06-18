@@ -6,7 +6,7 @@ import { app } from '@/server.js'
 let server: Server
 
 beforeEach(async () => {
-    server = app.listen(8081)
+    server = app.listen()
 })
 
 afterEach(async () => {
