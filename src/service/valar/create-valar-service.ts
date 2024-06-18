@@ -1,3 +1,4 @@
+import { ValaAlreadyExist } from "@/errors/vala-already-exist.js";
 import { ValarFactory } from "@/interfaces/valar-factory.js";
 import { Valar } from "@prisma/client";
 
@@ -22,6 +23,10 @@ export class CreateValarService {
     ) {}
 
     async execute(valar: CreateValarRequest): Promise<CreateValarResponse> {
+        const findVala = await this.valarRepository.findByName(valar.name)
+
+        if(findVala) throw new ValaAlreadyExist()
+
         const createValar = await this.valarRepository.create(valar)
 
         return {

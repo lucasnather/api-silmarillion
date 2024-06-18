@@ -6,4 +6,5 @@ export interface ValarFactory {
     create(valar: Prisma.ValarCreateInput | Valar ): Promise<Valar>
     findMany(): Promise<ValarDto[]>
     findById(id: number): Promise<ValarDto | null>
+    findByName(name: string): Promise<Valar | null>
 }

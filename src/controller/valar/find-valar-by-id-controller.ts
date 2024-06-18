@@ -1,8 +1,9 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { ValarRepository } from '@/repositories/valar-repository.js'
 import { FindValarByIdService } from "@/service/valar/find-valar-by-id-service.js";
-import z from "zod";
+import z, { ZodError } from "zod";
 import { ResourceNotFound } from "@/errors/resource-not-found.js";
+import { fromZodError } from "zod-validation-error";
 
 export class FindValarbyIdController {
 
@@ -12,13 +13,12 @@ export class FindValarbyIdController {
             valarId: z.coerce.number()
         })
 
-        const { valarId } = valarParamSchema.parse(request.params)
-    
-
         const valarRepository = new ValarRepository()
         const findManyValarService = new FindValarByIdService(valarRepository)
-
+        
         try {
+            const { valarId } = valarParamSchema.parse(request.params)
+
             const { status, valar} = await findManyValarService.execute({
                 id: valarId
             })
@@ -28,6 +28,14 @@ export class FindValarbyIdController {
                 status
             })
         } catch(e) {
+            if(e instanceof ZodError) {
+                return response.status(404).json({
+                    message: 'Validation Error',
+                    status: 404,
+                    error: fromZodError(e)
+                })
+            }
+
             if(e instanceof ResourceNotFound) {
                 return response.status(404).json({
                     message: e.message
@@ -36,7 +44,7 @@ export class FindValarbyIdController {
 
             return response.status(500).json({
                 message: 'Server Internal Error'
-            })
+            }) 
         }
     }
 }

@@ -1,7 +1,6 @@
-import { ValarDto } from "@/interfaces/dto/valar-dto.js";
+
 import { ValarFactory } from "@/interfaces/valar-factory.js";
 import { Valar } from "@prisma/client";
-import { isBoxedPrimitive } from "util/types";
 
 export class ValarMemoryRepository implements ValarFactory {
     
@@ -62,6 +61,15 @@ export class ValarMemoryRepository implements ValarFactory {
             isAratar
         }
     }
+
+    async findByName(name: string) {
+        const vala = this.valar.find(vala => vala.name === name)
+
+        if(!vala) return null
+
+        return vala
+    }
+    
 
     private incrementId() {
         return ++this.id

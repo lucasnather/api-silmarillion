@@ -15,6 +15,7 @@ app.use(
     swaggerUIExpress.setup(swaggerDocs, { explorer: true})
 );
 
+app.use(valarRouter)
 
 app.get('/', (request, response) => {
     response.json({
@@ -22,7 +23,6 @@ app.get('/', (request, response) => {
     })
 })
 
-app.use(valarRouter)
 
 app.listen(port, () => {
     console.log(`Sever running at http://localhost:${port}`)

@@ -37,7 +37,7 @@ export class ValarRepository implements ValarFactory {
     }
 
     async findById(id: number) {
-        const findValar= await prisma.valar.findUnique({
+        const findValar = await prisma.valar.findUnique({
             where: {
                 id
             },
@@ -57,5 +57,20 @@ export class ValarRepository implements ValarFactory {
 
         return findValar
     }
+
+    async findByName(name: string) {
+        const findValar = await prisma.valar.findUnique({
+            where: {
+                name
+            }
+        })
+
+        const valarNotFound = !findValar
+
+        if(valarNotFound) return null
+
+        return findValar
+    }
+    
     
 }
