@@ -1,3 +1,4 @@
+import { RaceAlreadyExist } from "@/errors/race-already-exist.js";
 import { RaceFactory } from "@/interfaces/race-factory.js";
 import { Races } from "@prisma/client";
 
@@ -24,7 +25,7 @@ export class CreateRacesService {
     async execute(race: CreateRacesRequest): Promise<CreateRacesResponse> {
         const findRaces = await this.raceRepository.findByName(race.name)
 
-        if(findRaces) throw new Error('ihhh')
+        if(findRaces) throw new RaceAlreadyExist()
 
         const races = await this.raceRepository.create(race)
 

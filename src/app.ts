@@ -4,6 +4,7 @@ import { valarRouter } from './routes/valar-routes.js'
 import { app } from './server.js'
 import swaggerUIExpress from 'swagger-ui-express'
 import swaggerDocs from './swagger.json'
+import { racesRouter } from './routes/race-routers.js'
 
 app.use(express.json())
 
@@ -16,6 +17,7 @@ app.use(
 );
 
 app.use(valarRouter)
+app.use(racesRouter)
 
 app.get('/', (request, response) => {
     response.json({
