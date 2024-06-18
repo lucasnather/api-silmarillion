@@ -27,3 +27,19 @@ model Valar {
 
   @@map("valar")
 }
+
+model Races {
+  id Int @id @default(autoincrement())
+
+  name String @unique
+  otherNames String[]
+  origin String
+  description String
+  whoCreated String
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime? @default(now()) @map("updated_at")
+  deletedAt DateTime? @default(now()) @map("deleted_at")
+
+  @@map("races")
+}
